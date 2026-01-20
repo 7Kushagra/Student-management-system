@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Student</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+    <h3>Search Student</h3>
+
+    <form method="POST" class="mb-4">
+        <input type="text" name="keyword" class="form-control" placeholder="Enter name or email" required>
+        <button class="btn btn-primary mt-2">Search</button>
+    </form>
+
+    {% if students %}
+    <table class="table table-bordered">
+        <tr>
+            <th>ID</th><th>Name</th><th>Email</th><th>Course</th>
+        </tr>
+        {% for s in students %}
+        <tr>
+            <td>{{ s[0] }}</td>
+            <td>{{ s[1] }}</td>
+            <td>{{ s[2] }}</td>
+            <td>{{ s[3] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</div>
+
+</body>
+</html>

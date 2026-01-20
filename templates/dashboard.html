@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard | Student Management</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        /* Fade-in animation */
+        .fade-in {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Card hover effect */
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 12px;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark px-4">
+    <span class="navbar-brand fw-bold">
+        <i class="fa-solid fa-graduation-cap me-2"></i>
+        Student Management System
+    </span>
+    <a href="/logout" class="btn btn-outline-light btn-sm">
+        <i class="fa-solid fa-right-from-bracket"></i> Logout
+    </a>
+</nav>
+
+<!-- Dashboard -->
+<div class="container mt-5">
+
+    <h2 class="mb-4 fw-bold">Dashboard</h2>
+
+    <div class="row g-4">
+
+        <!-- Manage Students -->
+        <div class="col-md-4 fade-in">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <i class="fa-solid fa-users fa-3x text-primary mb-3"></i>
+                    <h5>Manage Students</h5>
+                    <p class="text-muted">View, Edit & Delete students</p>
+                    <a href="/students" class="btn btn-primary">
+                        Open <i class="fa-arrow-right ms-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Student -->
+        <div class="col-md-4 fade-in">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <i class="fa-solid fa-user-plus fa-3x text-success mb-3"></i>
+                    <h5>Add Student</h5>
+                    <p class="text-muted">Create a new student record</p>
+                    <a href="/add" class="btn btn-success">
+                        Add <i class="fa-plus ms-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search Student -->
+        <div class="col-md-4 fade-in">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <i class="fa-solid fa-magnifying-glass fa-3x text-warning mb-3"></i>
+                    <h5>Search Student</h5>
+                    <p class="text-muted">Search by name or email</p>
+                    <a href="/search" class="btn btn-warning text-white">
+                        Search <i class="fa-search ms-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Total Students -->
+        <div class="col-md-4 fade-in">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <i class="fa-solid fa-chart-column fa-3x text-info mb-3"></i>
+                    <h5>Total Students</h5>
+                    <p class="display-6 fw-bold">{{ total_students }}</p>
+                    <p class="text-muted">Registered students</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile (Optional) -->
+        <div class="col-md-4 fade-in">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <i class="fa-solid fa-user-shield fa-3x text-secondary mb-3"></i>
+                    <h5>Admin Profile</h5>
+                    <p class="text-muted">Manage admin settings</p>
+                    <a href="#" class="btn btn-secondary disabled">
+                        Coming Soon
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
